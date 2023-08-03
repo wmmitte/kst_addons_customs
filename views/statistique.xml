@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="vehicule_form">
+            <field name="name">analyse.view.form</field>
+            <field name="model">analyse</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire analyse">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name = "date_debut" style = "width:50%"/>
+                                <field name = "date_fin" style = "width:50%"/>
+                                <field name = "vehicule_id" style = "width:50%"/>
+                            </group>
+                            <group>
+                                <field name = "depense" style = "width:50%"/>
+                                <field name = "recette" style = "width:50%"/>
+                                <field name = "benefice" style = "width:50%"/>
+                            </group>
+                        </group>
+                        <div>
+                            <button name="afficher" string="Afficher" type="object" class="btn-dark" icon="fa-search"/>
+                            <![CDATA[&nbsp;]]>
+                            <!--<button name="print_dep" string="Imprimer" type="object" class="btn-warning" icon="fa-print"/>-->
+                        </div>
+                        <field name="analyse_ids" nolabel = "1">
+                            <tree string="Lignes dépenses" create ="false" delete="false">
+                                <field name="date"/>
+                                <field name="service_id"/>
+                                <field name="montant"/>                         
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="act_list_analyse" model="ir.actions.act_window">
+            <field name="name">Analyse camion</field>
+            <field name="res_model">analyse</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+    
+    <menuitem id="main_menu_stat" name ="Statistiques" sequence="4" parent="main_menu"/>
+        <menuitem id="menu_analyse" name = "Analyse camion" sequence="1" parent="main_menu_stat" action="act_list_analyse"/>
+
+
+    </data>
+</odoo>

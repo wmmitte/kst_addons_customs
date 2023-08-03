@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_chauffeur,access.chauffeur,model_chauffeur,base.group_user,1,1,1,1
+access_vehicule,access.vehicule,model_vehicule,base.group_user,1,1,1,1
+access_marque,access.marque,model_marque,base.group_user,1,1,1,1
+access_localite,access.localite,model_localite,base.group_user,1,1,1,1
+access_voyage,access.voyage,model_voyage,base.group_user,1,1,1,1
+access_service,access.service,model_service,base.group_user,1,1,1,1
+access_depense,access.depense,model_depense,base.group_user,1,1,1,1
+access_recette,access.recette,model_recette,base.group_user,1,1,1,1
+access_analyse,access.analyse,model_analyse,base.group_user,1,1,1,1
+access_analyse_line,access.analyse.line,model_analyse_line,base.group_user,1,1,1,1
+access_compteur_voyage,access.compteur.voyage,model_compteur_voyage,base.group_user,1,1,1,1
+access_assureur,access.assureur,model_assureur,base.group_user,1,1,1,1
+access_assurance,access.assurance,model_assurance,base.group_user,1,1,1,1
+access_assurance-line,access.assurance.line,model_assurance_line,base.group_user,1,1,1,1

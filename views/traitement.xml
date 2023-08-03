@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Vue voyage-->
+        <record model="ir.ui.view" id="voyage_form">
+            <field name="name">voyage.view.form</field>
+            <field name="model">voyage</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire voyage">
+                <header>
+                        <button name="act_valider_voyage" string="Valider voyage" type="object" class="oe_highlight" attrs="{'invisible' : [('state', 'not in', ['N'])]}" style="background-color: #28a745; border-color: #28a745;"/>
+                        <button name="act_cloturer_voyage" string="Clôturer voyage" type="object" class="oe_highlight" attrs="{'invisible' : [('state', 'not in', ['E'])]}" style="background-color: #28a745; border-color: #28a745;"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name = "name" style = "width:50%" readonly="1"/>
+                                <field name = "chauffeur_id" style = "width:100%"/>
+                                <field name = "vehicule_id" style = "width:100%"/>
+                                <field name = "localite_id" style = "width:100%"/>
+                            </group>
+                            <group>
+                                <field name = "date_depart" style = "width:100%"/>
+                                <field name = "date_retour" style = "width:100%"/>
+                                <field name = "objet" style = "width:100%"/>
+                                <field name = "company_id" style = "width:50%" invisible="1"/>
+                            </group>
+                        </group>
+                        <h1><field name = "observation" placeholder="Ajouter ici toute autre observation..."/></h1>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        
+
+        <record id="act_list_voyage" model="ir.actions.act_window">
+            <field name="name">Enregistrement d'un voyage</field>
+            <field name="res_model">voyage</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+
+        <record model="ir.ui.view" id="voyage_tree">
+            <field name="name">voyage.view.tree</field>
+            <field name="model">voyage</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des voyages" create='0' duplicate="0" delete="0" decoration-info="state == 'E'" decoration-success="state == 'R'">
+                    <field name = "name"/>
+                    <field name = "chauffeur_id"/>
+                    <field name = "vehicule_id"/>
+                    <field name = "objet"/>
+                    <field name = "date_depart"/>
+                    <field name = "date_retour"/>
+                    <field name = "state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="act_list_voyage_liste" model="ir.actions.act_window">
+            <field name="name">Liste des voyages</field>
+            <field name="res_model">voyage</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+
+
+        <!--Vue depense-->
+        <record model="ir.ui.view" id="depense_form">
+            <field name="name">depense.view.form</field>
+            <field name="model">depense</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire depense">
+                <header>
+                        <button name="act_valider_depense" string="Valider dépense" type="object" class="oe_highlight" attrs="{'invisible' : [('state', 'not in', ['N'])]}" style="background-color: #28a745; border-color: #28a745;"/>
+                        <button name="act_annuler_depense" string="Annuler dépense" type="object" class="oe_highlight" attrs="{'invisible' : [('state', 'not in', ['V'])]}" style="background-color: #28a745; border-color: #28a745;"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name = "date" style = "width:50%"/>
+                            <field name = "vehicule_id" style = "width:50%"/>
+                            <field name = "service" style = "width:50%"/>
+                            <field name = "montant" style = "width:50%"/>                            
+                        </group>
+                        <h1><field name = "observation" placeholder="Ajouter ici toute autre observation..."/></h1>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        
+
+        <record id="act_list_depense" model="ir.actions.act_window">
+            <field name="name">Enregistrement d'une dépense</field>
+            <field name="res_model">depense</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+
+        <record model="ir.ui.view" id="depense_tree">
+            <field name="name">depense.view.tree</field>
+            <field name="model">depense</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des dépenses" create='0' duplicate="0" delete="0" decoration-success="state == 'V'">
+                    <field name = "date"/>
+                    <field name = "vehicule_id"/>
+                    <field name = "service"/>
+                    <field name = "montant"/>
+                    <field name = "state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="act_list_depense_liste" model="ir.actions.act_window">
+            <field name="name">Liste des dépenses</field>
+            <field name="res_model">depense</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+
+        <!--Vue recette-->
+        <record model="ir.ui.view" id="recette_form">
+            <field name="name">recettte.view.form</field>
+            <field name="model">recette</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire recette">
+                <header>
+                        <button name="act_valider_recette" string="Valider recette" type="object" class="oe_highlight" attrs="{'invisible' : [('state', 'not in', ['N'])]}" style="background-color: #28a745; border-color: #28a745;"/>
+                        <button name="act_annuler_recette" string="Annuler recette" type="object" class="oe_highlight" attrs="{'invisible' : [('state', 'not in', ['V'])]}" style="background-color: #28a745; border-color: #28a745;"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name = "date" style = "width:50%"/>
+                            <field name = "vehicule_id" style = "width:50%"/>
+                            <field name = "objet" style = "width:50%"/>
+                            <field name = "montant" style = "width:50%"/>                            
+                        </group>
+                        <h1><field name = "observation" placeholder="Ajouter ici toute autre observation..."/></h1>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="act_list_recette" model="ir.actions.act_window">
+            <field name="name">Enregistrement d'une recette</field>
+            <field name="res_model">recette</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="recette_tree">
+            <field name="name">recette.view.tree</field>
+            <field name="model">recette</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des recettes" create='0' duplicate="0" delete="0" decoration-success="state == 'V'">
+                    <field name = "date"/>
+                    <field name = "vehicule_id"/>
+                    <field name = "objet"/>
+                    <field name = "montant"/>
+                    <field name = "state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="act_list_recette_liste" model="ir.actions.act_window">
+            <field name="name">Liste des recettes</field>
+            <field name="res_model">recette</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="assurance_form">
+            <field name="name">assurance.view.form</field>
+            <field name="model">assurance</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire assurance">
+                    <header>
+                        <button name="act_valider_assurance" string="Valider assurance" type="object" class="oe_highlight" attrs="{'invisible' : [('state', 'not in', ['N'])]}" style="background-color: #28a745; border-color: #28a745;"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name = "vehicule_id" style = "width:100%"/>
+                                <field name = "assureur_id" style = "width:100%"/>
+                                <field name = "mois" style = "width:100%"/>
+                            </group>
+                            <group>
+                                <field name = "date_deb" style = "width:100%"/>
+                                <field name = "date_fin" style = "width:100%"/>
+                                <field name = "montant" style = "width:100%"/>
+                                <field name = "montant_mois" invisible="0"/>
+                            </group>
+                        </group>                   
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="assurance_tree">
+            <field name="name">assurance.view.tree</field>
+            <field name="model">assurance</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des assurances" decoration-success="state == 'V'">
+                    <field name = "vehicule_id"/>
+                    <field name = "date_deb"/>
+                    <field name = "date_fin"/>
+                    <field name = "montant"/>
+                    <field name = "state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="act_list_assurance" model="ir.actions.act_window">
+            <field name="name">Liste des assurances</field>
+            <field name="res_model">assurance</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        <menuitem id="main_menu" name ="APP-KST" sequence="1" web_icon="appkere,static/description/icon.png"/>
+        <menuitem id="main_menu_voyage" name ="Voyages" sequence="2" parent="main_menu"/>
+        <menuitem id="menu_voyage" name = "Enregistrer un voyage" sequence="1" parent="main_menu_voyage" action="act_list_voyage"/>
+        <menuitem id="menu_voyage_liste" name = "Liste des voyages" sequence="2" parent="main_menu_voyage" action="act_list_voyage_liste"/>
+
+        <menuitem id="main_menu_depense" name ="Dépenses/Recettes" sequence="3" parent="main_menu"/>
+        <menuitem id="menu_depense" name = "Enregistrer une dépense liée à un camion" sequence="1" parent="main_menu_depense" action="act_list_depense"/>
+        <menuitem id="menu_depense_liste" name = "Liste des dépenses" sequence="2" parent="main_menu_depense" action="act_list_depense_liste"/>
+        <menuitem id="menu_assurance" name = "Enregistrer une assurance" sequence="3" parent="main_menu_depense" action="act_list_assurance"/>
+        <menuitem id="menu_recette" name = "Enregistrer une recette liée à un camion" sequence="4" parent="main_menu_depense" action="act_list_recette"/>
+        <menuitem id="menu_recette_liste" name = "Liste des recettes" sequence="5" parent="main_menu_depense" action="act_list_recette_liste"/>
+    </data>
+</odoo>

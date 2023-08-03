@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Vue voyage-->
+        <record model="ir.ui.view" id="chauffeur_form">
+            <field name="name">chauffeur.view.form</field>
+            <field name="model">chauffeur</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire chauffeur">
+                    <sheet>
+                        <group>
+                            <field name = "photo"/>
+                            <field name = "name" style = "width:50%"/>
+                            <field name = "telephone" style = "width:50%"/>
+                            <field name = "permis" style = "width:50%"/>
+                            <field name = "cnib" style = "width:50%"/>
+                            <field name = "date_naissance" style = "width:50%"/>
+                        </group>                       
+                            <field name = "company_id" style = "width:50%" invisible="1"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="chauffeur_tree">
+            <field name="name">chauffeur.view.tree</field>
+            <field name="model">chauffeur</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des chauffeurs" delete="0">
+                    <field name = "name"/>
+                    <field name = "telephone"/>
+                    <field name = "permis"/>
+                    <field name = "cnib"/>
+                    <field name = "active"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="act_list_chauffeur" model="ir.actions.act_window">
+            <field name="name">Liste des chauffeurs</field>
+            <field name="res_model">chauffeur</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="main_menu_chauffeur" name ="Chauffeurs" sequence="1" parent="main_menu"/>
+        <menuitem id="menu_chauffeur" name = "Enregistrer un chauffeur" sequence="1" parent="main_menu_chauffeur" action="act_list_chauffeur"/>
+    </data>
+</odoo>

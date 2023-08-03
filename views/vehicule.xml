@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+ <!--Vue service-->
+        <record model="ir.ui.view" id="service_form">
+            <field name="name">service.view.form</field>
+            <field name="model">service</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire service">
+                    <sheet>
+                        <group>
+                            <field name = "name" style = "width:50%"/>
+                            <field name = "description" style = "width:50%"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="service_tree">
+            <field name="name">service.view.tree</field>
+            <field name="model">service</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des services">
+                    <field name = "name"/>
+                    <field name = "description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_list_service" model="ir.actions.act_window">
+            <field name="name">Liste des services</field>
+            <field name="res_model">service</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Vue marque-->
+        <record model="ir.ui.view" id="marque_form">
+            <field name="name">marque.view.form</field>
+            <field name="model">marque</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire marque">
+                    <sheet>
+                        <group>
+                            <field name = "name" style = "width:50%"/>
+                            <field name = "description" style = "width:50%"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="marque_tree">
+            <field name="name">marque.view.tree</field>
+            <field name="model">marque</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des marques">
+                    <field name = "name"/>
+                    <field name = "description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_list_marque" model="ir.actions.act_window">
+            <field name="name">Liste des marques</field>
+            <field name="res_model">marque</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Vue localite-->
+        <record model="ir.ui.view" id="localite_form">
+            <field name="name">localite.view.form</field>
+            <field name="model">localite</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire localite">
+                    <sheet>
+                        <group>
+                            <field name = "name" style = "width:50%"/>
+                            <field name = "description" style = "width:50%"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="localite_tree">
+            <field name="name">localite.view.tree</field>
+            <field name="model">localite</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des localités">
+                    <field name = "name"/>
+                    <field name = "description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_list_localite" model="ir.actions.act_window">
+            <field name="name">Liste des localités</field>
+            <field name="res_model">localite</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!--Vue vehicule-->
+        <record model="ir.ui.view" id="vehicules_form">
+            <field name="name">vehicule.view.form</field>
+            <field name="model">vehicule</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire vehicule">
+                    <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                        <group>
+                            <field name = "marque_id" style = "width:50%"/>
+                            <field name = "chassis" style = "width:50%"/>
+                            <field name = "plaque" style = "width:50%"/>
+                            <field name = "company_id" style = "width:50%" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vehicule_tree">
+            <field name="name">vehicule.view.tree</field>
+            <field name="model">vehicule</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des véhicules">
+                    <field name = "marque_id"/>
+                    <field name = "chassis"/>
+                    <field name = "plaque"/>
+                    <field name = "active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_list_vehicule" model="ir.actions.act_window">
+            <field name="name">Liste des véhicules</field>
+            <field name="res_model">vehicule</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="assureur_form">
+            <field name="name">assureur.view.form</field>
+            <field name="model">assureur</field>
+            <field name="arch" type="xml">
+                <form string="Formulaire service">
+                    <sheet>
+                        <group>
+                            <field name = "name" style = "width:50%"/>
+                            <field name = "description" style = "width:50%"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="assureur_tree">
+            <field name="name">assureur.view.tree</field>
+            <field name="model">assureur</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des assureurs">
+                    <field name = "name"/>
+                    <field name = "description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_list_assureur" model="ir.actions.act_window">
+            <field name="name">Liste des assureurs</field>
+            <field name="res_model">assureur</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        <menuitem id="main_menu_db" name ="Paramétrages" sequence="6" parent="main_menu"/>
+        <menuitem id="menu_service" name = "Enregistrer un service" sequence="1" parent="main_menu_db" action="act_list_service"/>
+        <menuitem id="menu_marque" name = "Enregistrer une marque de véhicule" sequence="2" parent="main_menu_db" action="act_list_marque"/>
+        <menuitem id="menu_localite" name ="Enregistrer une localité" sequence="3" parent="main_menu_db" action="act_list_localite"/>
+        <menuitem id="menu_vehicule" name ="Enregistrer un camion" sequence="4" parent="main_menu_db" action="act_list_vehicule"/>
+        <menuitem id="menu_assureur" name ="Enregistrer une assurance" sequence="5" parent="main_menu_db" action="act_list_assureur"/>
+    </data>
+</odoo>

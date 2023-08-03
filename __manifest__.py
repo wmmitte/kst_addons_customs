@@ -1,0 +1,21 @@
+{
+    'name': 'GESTION TKM',
+    'version': '1.0',
+    'website': '',
+    'category': 'Logiciel AM',
+    'summary': "Ce logiciel est conçu pour faciliter la gestion de TKM",
+    'author': 'OURNO MOHAMED KABIR',
+    'depends': ['base',"mail"],
+    'images': ['static/description/gestion.jpg'],
+    'data': [
+        "security/ir.model.access.csv",
+        "security/security.xml",
+        "views/traitement.xml",
+        "views/chauffeur.xml",
+        "views/vehicule.xml",
+        "views/statistique.xml",
+        "data/data.xml",
+    ],
+    'installable': True,
+    'auto_install': False,
+}

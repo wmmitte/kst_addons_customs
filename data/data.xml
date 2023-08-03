@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--Uinté de mesure-->
+        <record id="t" model="service">
+            <field name="name">Taxe TVM</field>
+        </record>
+
+        <record id="p" model="service">
+            <field name="name">Panne technique</field>
+        </record>
+
+        <record id="a" model="service">
+            <field name="name">Autre dépense</field>
+        </record>
+
+        <record id="co" model="service">
+            <field name="name">Collage manquant</field>
+        </record>
+
+        <record id="fd" model="service">
+            <field name="name">Fiche de décompte fiscal 3%</field>
+        </record>
+
+        <!--Marques-->
+        <record id="m" model="marque">
+            <field name="name">MERCEDES</field>
+        </record>
+
+        <record id="ma" model="marque">
+            <field name="name">MAN</field>
+        </record>
+
+        <record id="r" model="marque">
+            <field name="name">RENAULT</field>
+        </record>
+
+        <record id="d" model="marque">
+            <field name="name">DAF</field>
+        </record>
+
+        <record id="vo" model="marque">
+            <field name="name">VOLVO</field>
+        </record>
+
+        <record id="tr" model="marque">
+            <field name="name">TRUCKS</field>
+        </record>
+
+        <record id="i" model="marque">
+            <field name="name">IVECO</field>
+        </record>
+
+        <record id="sc" model="marque">
+            <field name="name">SCANIA</field>
+        </record>
+
+        <!--localités-->
+        <record id="rci" model="localite">
+            <field name="name">CÔTE D'IVOIRE</field>
+        </record>
+
+        <record id="gha" model="localite">
+            <field name="name">GHANA</field>
+        </record>
+
+        <record id="tg" model="localite">
+            <field name="name">TOGO</field>
+        </record>
+
+        <record id="ben" model="localite">
+            <field name="name">BENIN</field>
+        </record>
+
+        <record id="nig" model="localite">
+            <field name="name">NIGER</field>
+        </record>
+
+        <record id="mal" model="localite">
+            <field name="name">MALI</field>
+        </record>
+
+        <!--Assureur-->
+        <record id="ca" model="assureur">
+            <field name="name">CORIS ASSURANCE</field>
+        </record>
+
+        <record id="al" model="assureur">
+            <field name="name">ALLIANZ</field>
+        </record>
+
+        <record id="ga" model="assureur">
+            <field name="name">GENERAL DES ASSURANCES (GA)</field>
+        </record>
+
+        <record id="ja" model="assureur">
+            <field name="name">JACKSON</field>
+        </record>
+
+        <record id="so" model="assureur">
+            <field name="name">SONAR</field>
+        </record>
+
+        <record id="ua" model="assureur">
+            <field name="name">UAB</field>
+        </record>
+
+        <record id="su" model="assureur">
+            <field name="name">SUNU</field>
+        </record>
+
+        <record id="sa" model="assureur">
+            <field name="name">SANLAM</field>
+        </record>
+
+        
+    </data>
+</odoo>
